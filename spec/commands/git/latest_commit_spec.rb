@@ -1,5 +1,4 @@
-require 'helper'
-require 'commands/git/latest_commit'
+require_relative '../../../lib/tipster/commands/git/latest_commit'
 
 describe "The latest git commit" do
   it "should return the most recent SHA" do

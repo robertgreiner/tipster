@@ -1,9 +1,10 @@
-require 'helper'
-require 'commands/file_info'
+require 'rspec'
+require_relative '../../lib/tipster/commands/file_info'
+$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib', 'tipster'))
 
 describe "Line count" do
   it "should return the number of lines in a file" do
-    file_name = "./stub/fake_file.txt"
+    file_name = File.expand_path 'stub/fake_file.txt'
     FileInfo.new(file_name).line_count.should be 10
   end
   it "should raise an error if the file does not exist" do

@@ -1,5 +1,5 @@
-require 'helper'
-require 'commands/git/files_changed'
+require 'rspec'
+require_relative '../../../lib/tipster/commands/git/files_changed'
 
 describe "git show --numstat" do
   it "should return detailed information about a specified commit" do
