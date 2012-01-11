@@ -10,7 +10,7 @@ describe "Code Churn Heuristic" do
   it "should hold the ratio for each file in the commit" do
     code_churn_heuristic = CodeChurnHeuristic.new
     code_churn_heuristic.process fake_file
-    code_churn_heuristic.files["./stub/fake_file.txt"].should == 0.5
+    code_churn_heuristic.files["spec/stub/fake_file.txt"].should == 0.5
   end
   it "should fail on high churn" do
     code_churn_heuristic = CodeChurnHeuristic.new
@@ -26,22 +26,22 @@ end
 
 def build_high_churn_commit_history
   commit_history = []
-  commit_history << CommitHistory.new(5, 0, "./stub/fake_file.txt")
+  commit_history << CommitHistory.new(6, 0, "spec/stub/fake_file.txt")
 end
 
 def build_low_churn_commit_history
   commit_history = []
-  commit_history << CommitHistory.new(1, 0, "./stub/fake_file.txt")
+  commit_history << CommitHistory.new(1, 0, "spec/stub/fake_file.txt")
 end
 
 def fake_file
-  CommitHistory.new(5, 0, "./stub/fake_file.txt")
+  CommitHistory.new(5, 0, "spec/stub/fake_file.txt")
 end
 
 def fake_high_churn_file
-  CommitHistory.new(5, 0, "./stub/fake_file.txt")
+  CommitHistory.new(5, 0, "spec/stub/fake_file.txt")
 end
 
 def fake_low_churn_file
-  CommitHistory.new(5, 0, "./stub/fake_file.txt")
+  CommitHistory.new(5, 0, "spec/stub/fake_file.txt")
 end
