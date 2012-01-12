@@ -3,21 +3,21 @@ tipster
 
 Tipster assesses the risk of a git commit by running various heuristics against what has changed.
 
-How to use tipster
+Using tipster
 -------------------
 
 Getting started with tipster in 3 easy steps:
 
-## Install ruby gem
+# Install ruby gem
 
     gem install tipster
 
-## Create ruby file
+# Create ruby file
 
     require 'tipster'
     Tipster.new('/path/to/repository').html_report
 
-## Run!
+# Run!
 
     ruby tipster.rb
 
