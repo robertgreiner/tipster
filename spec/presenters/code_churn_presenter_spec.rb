@@ -2,6 +2,9 @@ require 'rspec'
 require_relative '../../lib/tipster/presenters/code_churn_presenter'
 
 describe "Code Churn Presenter" do
+  before(:all) do
+    Dir.chdir '..'
+  end
   it "should not have a risky commit if churn is low" do
     commit = CodeChurnPresenter.new 'a77b5e63d1da2436fc4aa5931e3bf54469ab36c5'
     commit.pass?.should be true

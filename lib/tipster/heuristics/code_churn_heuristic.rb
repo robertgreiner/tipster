@@ -21,7 +21,7 @@ class CodeChurnHeuristic
 
   def churn_ratio(file)
 
-    total_lines = FileInfo.new(File.root file.file_name).line_count
+    total_lines = FileInfo.new(file.file_name).line_count
     churned_lines = file.lines_modified
     churned_lines.to_f / total_lines.to_f
   end
