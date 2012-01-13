@@ -5,15 +5,15 @@ require_relative '../presenters/code_churn_presenter'
 
 class HtmlReport
 
-	def initialize
-		generate html
+	def initialize(commit_id = nil)
+		generate html commit_id
 	end
 
-	def html
-		code_ratio_presenter = CodeRatioPresenter.new
+	def html(commit_id)
+		code_ratio_presenter = CodeRatioPresenter.new commit_id
 		code_ratio_status = code_ratio_presenter.status
 
-    code_churn_presenter = CodeChurnPresenter.new
+    code_churn_presenter = CodeChurnPresenter.new commit_id
     code_churn_status = code_churn_presenter.status
 
 		header << file_details(code_ratio_presenter.change_list) << code_ratio_details(code_ratio_status) << code_churn_details(code_churn_status) << footer
