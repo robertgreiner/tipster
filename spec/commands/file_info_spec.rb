@@ -1,5 +1,5 @@
 require 'rspec'
-require_relative '../../lib/tipster/commands/file_info'
+require_relative '../../lib/tipster/files/file_info'
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib', 'tipster'))
 
 describe "Line count" do

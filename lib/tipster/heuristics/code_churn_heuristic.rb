@@ -1,5 +1,5 @@
 require_relative '../history/commit_history'
-require_relative '../commands/file_info'
+require_relative '../files/file_info'
 require_relative '../files/file'
 
 class CodeChurnHeuristic
