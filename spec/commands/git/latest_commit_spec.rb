@@ -9,6 +9,15 @@ describe "The latest git commit" do
   end
 end
 
+describe "An invalid git repository" do
+  it "should have an empty id" do
+    latest_commit = double("LatestCommit")
+    latest_commit.stub(:id).and_return ''
+    sha = latest_commit.id
+    sha.length.should be 0
+  end
+end
+
 def fake_sha
   'c5b5861cb13fc2f2fcbe0d3578758def652c08ab'
 end

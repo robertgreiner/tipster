@@ -3,6 +3,7 @@ require 'launchy'
 require_relative '../presenters/code_ratio_presenter'
 require_relative '../presenters/code_churn_presenter'
 require_relative '../files/file'
+require_relative '../commands/git/repository_context'
 
 class HtmlReport
 
@@ -12,6 +13,18 @@ class HtmlReport
 	end
 
 	def html(commit_id)
+
+    is_valid_repository = RepositoryContext.valid_repository?
+    is_valid_commit = RepositoryContext.valid_commit_id? commit_id
+
+    if !is_valid_repository
+      return 'Invalid repository path.'
+    end
+
+    if !is_valid_commit
+      return 'Invalid commit ID'
+    end
+
 		code_ratio_presenter = CodeRatioPresenter.new commit_id
 		code_ratio_status = code_ratio_presenter.status
 

@@ -9,6 +9,14 @@ describe "git show --numstat" do
   end
 end
 
+describe "an invalid git SHA" do
+  it "should have an empty change list" do
+    files_changed = double("FilesChanged")
+    files_changed.stub(:list).and_return ''
+    files_changed.list.should == ''
+  end
+end
+
 def fake_change_list
   list = 'commit d229f066bec91f6fc80448f707e7b070c1791631
 Author: Robert Greiner <robert@robertgreiner.com>
