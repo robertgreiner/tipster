@@ -14,10 +14,10 @@ Getting started with tipster in 3 easy steps:
 
 ### Create ruby file
 
-The default repository path is the local directory tipster is run in.  The default commit ID is HEAD.
+`number_of_commits` will tell tipster to build an HTML report for the current `commit_id` and the previous x commits.
 
     require 'tipster'
-    Tipster.new(['/path/to/repository']).html_report ['commit_id']
+    Tipster.new(['/path/to/repository' = "."]).html_report(['commit_id' = HEAD], [number_of_commits = 1])
 
 ### Run!
 
