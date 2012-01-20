@@ -1,4 +1,8 @@
 require_relative '../tipster'
 
-Tipster.new('../../').html_report
+path = File.expand_path '../../'
+
+Tipster.new(path).html_report("HEAD",3)
+
+
 
