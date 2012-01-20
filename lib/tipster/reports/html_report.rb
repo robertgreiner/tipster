@@ -2,10 +2,12 @@ require 'rubygems'
 require 'launchy'
 require_relative '../presenters/code_ratio_presenter'
 require_relative '../presenters/code_churn_presenter'
+require_relative '../files/file'
 
 class HtmlReport
 
 	def initialize(commit_id = nil)
+    @risk_report = File.temp 'risk_report.html'
 		generate html commit_id
 	end
 
@@ -20,11 +22,12 @@ class HtmlReport
 	end
 
   def generate(source)
-		File.open('risk_report.html', 'w') {|f| f.write(source) }
+		File.open(@risk_report, 'w') {|f| f.write(source) }
 	end
 
 	def display_in_browser
-		Launchy.open('risk_report.html')
+    puts @risk_report
+		Launchy.open('file:///' << @risk_report)
 	end
 
 	def file_details(change_list)
