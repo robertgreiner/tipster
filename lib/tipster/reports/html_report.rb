@@ -39,7 +39,6 @@ class HtmlReport
 	end
 
 	def display_in_browser
-    puts @risk_report
 		Launchy.open('file:///' << @risk_report)
 	end
 
