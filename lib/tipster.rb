@@ -4,8 +4,11 @@ class Tipster
   def initialize(repository_root_path = '.')
     Dir.chdir repository_root_path
   end
-  def html_report(commit_id = 'HEAD')
-     in_root? ? HtmlReport.new(commit_id).display_in_browser : display_error
+  def html_report(commit_id = 'HEAD', count = 1)
+    for i in 0..count - 1
+      next_commit_id = commit_id << "~#{i}"
+      in_root? ? HtmlReport.new(next_commit_id).display_in_browser : display_error
+    end
   end
 
   def in_root?
